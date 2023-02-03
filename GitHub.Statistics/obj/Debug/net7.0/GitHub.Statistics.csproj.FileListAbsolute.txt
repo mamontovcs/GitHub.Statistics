@@ -1,0 +1,12 @@
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\bin\Debug\net7.0\GitHub.Statistics.deps.json
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\bin\Debug\net7.0\GitHub.Statistics.dll
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\bin\Debug\net7.0\GitHub.Statistics.pdb
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.csproj.AssemblyReference.cache
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.AssemblyInfoInputs.cache
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.AssemblyInfo.cs
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.csproj.CoreCompileInputs.cache
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.dll
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\refint\GitHub.Statistics.dll
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\GitHub.Statistics.pdb
+D:\Repositories\Github.Statistics\Github.Statistics\GitHub.Statistics\obj\Debug\net7.0\ref\GitHub.Statistics.dll

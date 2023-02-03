@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GitHub.Statistics.API.props" />
+</Project>
