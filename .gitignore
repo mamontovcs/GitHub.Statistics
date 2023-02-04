@@ -1,3 +1,7 @@
 .vs/
 /GitHub.Statistics.API/bin/
+/GitHub.Statistics.API/obj/
+/GitHub.Statistics/bin/
+/GitHub.Statistics/obj/
+/GitHub.Statistics.API/.vscode/
 
