@@ -15,9 +15,9 @@ namespace GitHub.Statistics.API.Controllers
 
         [HttpGet]
         [Route("get")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            //await _gitHubStatisticsClient.GetRepositoriesInfo("");
+            await _gitHubStatisticsClient.GetRepositoriesInfo("mamontovcs");
 
             return Ok("OK OK");
         }

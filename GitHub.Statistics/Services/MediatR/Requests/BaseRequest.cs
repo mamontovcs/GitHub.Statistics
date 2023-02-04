@@ -7,6 +7,6 @@
             AccessToken = accessToken;
         }
 
-        protected string AccessToken { get; set; }
+        public string AccessToken { get; set; }
     }
 }

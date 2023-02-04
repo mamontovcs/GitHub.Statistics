@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
+using GitHub.Statistics.Services;
+using GitHub.Statistics.Services.Interfaces;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http.Headers;
 using System.Reflection;
 
 namespace GitHub.Statistics.ServiceConfiguration
@@ -16,11 +19,18 @@ namespace GitHub.Statistics.ServiceConfiguration
             services.AddHttpClient("GitHub", httpClient =>
             {
                 httpClient.BaseAddress = new Uri("https://api.github.com/");
+                var productValue = new ProductInfoHeaderValue("GitHubStatisticsClient", "1.0");
+                var commentValue = new ProductInfoHeaderValue("(+https://github.com/mamontovcs/GitHub.Statistics)");
+
+                httpClient.DefaultRequestHeaders.UserAgent.Add(productValue);
+                httpClient.DefaultRequestHeaders.UserAgent.Add(commentValue);
             });
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
             });
+
+            services.AddTransient<IGitHubRepositoryInfoService, GitHubRepositoryInfoService>();
 
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);

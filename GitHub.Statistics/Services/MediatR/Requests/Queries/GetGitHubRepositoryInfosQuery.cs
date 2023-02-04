@@ -1,9 +1,10 @@
 ﻿using GitHub.Statistics.Models;
+using GitHub.Statistics.Models.Interfaces;
 using MediatR;
 
 namespace GitHub.Statistics.Services.MediatR.Requests.Queries
 {
-    internal class GetGitHubRepositoryInfosQuery : BaseRequest, IRequest<IEnumerable<GitHubRepositoryInfo>>
+    internal class GetGitHubRepositoryInfosQuery : BaseRequest, IRequest<IEnumerable<IGitHubRepositoryInfo>>
     {
         protected GetGitHubRepositoryInfosQuery(string userName, string accessToken) : base(accessToken)
         {
