@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GitHub.Statistics.Services;
 using GitHub.Statistics.Services.Interfaces;
+using GitHub.Statistics.Services.MappingProfiles;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Headers;
@@ -28,6 +29,7 @@ namespace GitHub.Statistics.ServiceConfiguration
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
+                mc.AddProfile(new GitHubRepositoryInfoProfile());
             });
 
             services.AddTransient<IGitHubRepositoryInfoService, GitHubRepositoryInfoService>();
@@ -37,6 +39,5 @@ namespace GitHub.Statistics.ServiceConfiguration
 
             services.AddSingleton<IGitHubStatisticsClient, GitHubStatisticsClient>();
         }
-
     }
 }

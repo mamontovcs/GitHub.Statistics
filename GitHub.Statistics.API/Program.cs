@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddGitHubStatisticsClient();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -21,7 +22,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
+app.UseCors(
+        options => options.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyMethod()
+    );
 app.MapControllers();
 
 app.Run();

@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
+using GitHub.Statistics.Models;
 using GitHub.Statistics.Models.Interfaces;
 using GitHub.Statistics.Services.Interfaces;
+using GitHub.Statistics.Services.Models.Responses.GetAllRepositoriesFromUser;
+using Newtonsoft.Json;
 using System.Web;
 
 namespace GitHub.Statistics.Services
@@ -18,7 +21,6 @@ namespace GitHub.Statistics.Services
 
         public async Task<IEnumerable<IGitHubRepositoryInfo>> GetAllRepositoriesFromUser(string userName, string accessToken)
         {
-
             var httpClient = _httpClientFactory.CreateClient("GitHub");
 
             var query = HttpUtility.ParseQueryString(httpClient.BaseAddress.Query);
@@ -38,18 +40,15 @@ namespace GitHub.Statistics.Services
                 content = await response.Content.ReadAsStringAsync();
                 response.EnsureSuccessStatusCode();
 
-                //var responseObject = JsonConvert.DeserializeObject<x>(content);
+                var responseObject = JsonConvert.DeserializeObject<GetAllRepositoriesFromUserReponse>(content);
 
-                //var facebookCampaignInfos = _mapper.Map<IEnumerable<FacebookCampaignInfo>>(responseObject.Data);
+                var gitHubRepositoryInfos = _mapper.Map<IEnumerable<GitHubRepositoryInfo>>(responseObject.Repositories);
 
-                //return facebookCampaignInfos;
+                return gitHubRepositoryInfos;
             }
             catch (HttpRequestException)
             {
-                //throw new FacebookHttpRequestException(content);
             }
-
-            return null;
         }
     }
 }
