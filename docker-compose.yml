@@ -10,4 +10,4 @@ services:
     ports:
       - "2508:443"
     environment:
-      - ASPNETCORE_URLS=http://+:443
+      - ASPNETCORE_URLS=https://+:443;http://+80
