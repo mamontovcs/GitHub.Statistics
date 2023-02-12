@@ -8,6 +8,15 @@ services:
 
     # Mapping of container port to host
     ports:
-      - "2508:443"
+      - "2508:80"
     environment:
-      - ASPNETCORE_URLS=https://+:443;http://+80
+      - ASPNETCORE_URLS=http://+80
+
+    networks:
+      github:
+        aliases:
+          - github
+
+networks:
+  github:
+    name: github

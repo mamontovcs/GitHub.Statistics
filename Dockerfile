@@ -6,7 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["GitHub.Statistics.API/GitHub.Statistics.API.csproj", "GitHub.Statistics.API/"]
-COPY ["GitHub.Statistics/GitHub.Statistics.csproj", "GitHub.Statistics/"]
+COPY ["GitHub.Statistics.API/GitHub.Statistics.API.csproj", "GitHub.Statistics.API/"]
 RUN dotnet restore "GitHub.Statistics.API/GitHub.Statistics.API.csproj"
 COPY . .
 WORKDIR "/src/GitHub.Statistics.API"
