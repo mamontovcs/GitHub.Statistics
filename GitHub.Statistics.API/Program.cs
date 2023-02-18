@@ -1,12 +1,21 @@
+using GitHub.Statistics.API.SignalR;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSignalR();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+
+var clientPolicyName = "ClientPolicy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(clientPolicyName, builder => builder
+        .WithOrigins("http://localhost:4200")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials());
+});
 
 var app = builder.Build();
 
@@ -19,9 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-app.UseCors(
-        options => options.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyMethod()
-    );
+app.UseCors(clientPolicyName);
+
 app.MapControllers();
 
 app.Run();
