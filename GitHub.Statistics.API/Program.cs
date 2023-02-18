@@ -1,5 +1,3 @@
-using GitHub.Statistics.API.SignalR;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
