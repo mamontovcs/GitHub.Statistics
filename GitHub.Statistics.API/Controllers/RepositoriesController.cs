@@ -31,6 +31,7 @@ namespace GitHub.Statistics.API.Controllers
             //var userName = await githubClient.User.Current();
 
             //var repositories = await githubClient.Repository.GetAllForUser("mamontovcs");
+
             _memoryCache.Set("AccessToken", accessToken);
 
             var gitHubRepositoryInfos = await _gitHubRespotiriesService.GetGitHubRepositoriesInfos();
