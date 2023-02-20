@@ -1,19 +1,15 @@
+using AutoMapper;
+using GitHub.Statistics.API.Services;
+using GitHub.Statistics.API.Services.Interfaces;
+using MediatR;
+using Microsoft.Extensions.Caching.Memory;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var clientPolicyName = builder.Configuration.GetSection("ClientPolicyName").Value;
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSignalR();
-builder.Services.AddSwaggerGen();
-
-var clientPolicyName = "ClientPolicy";
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(clientPolicyName, builder => builder
-        .WithOrigins("http://localhost:4200")
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials());
-});
+AddServices(services, clientPolicyName);
 
 var app = builder.Build();
 
@@ -31,3 +27,34 @@ app.UseCors(clientPolicyName);
 app.MapControllers();
 
 app.Run();
+
+void AddServices(IServiceCollection services, string clientPolicyName)
+{
+    services.AddControllers();
+    services.AddEndpointsApiExplorer();
+    services.AddSignalR();
+    services.AddSwaggerGen();
+    services.AddMediatR(Assembly.GetExecutingAssembly());
+    services.AddScoped<IMemoryCache, MemoryCache>();
+
+    var mapperConfig = new MapperConfiguration(config =>
+    {
+
+    });
+
+    IMapper mapper = mapperConfig.CreateMapper();
+    services.AddSingleton(mapper);
+
+    services.AddTransient<IGitHubClientFactory, GitHubClientFactory>();
+    services.AddTransient<IGitHubRepositoriesInfoReceiver, GitHubRepositoriesInfoReceiver>();
+    services.AddTransient<IGitHubRepositoriesService, GitHubRepositoriesService>();
+
+    services.AddCors(options =>
+    {
+        options.AddPolicy(clientPolicyName, builder => builder
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+    });
+}
