@@ -2,10 +2,5 @@
 
 namespace GitHub.Statistics.API.Models
 {
-    internal class GitHubRepositoryInfo : IGitHubRepositoryInfo
-    {
-        public long Id { get; set; }
-
-        public string Name { get; set; }
-    }
+    internal record GitHubRepositoryInfo(long Id, string Name) : IGitHubRepositoryInfo;
 }

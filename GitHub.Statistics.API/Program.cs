@@ -1,4 +1,5 @@
 using AutoMapper;
+using GitHub.Statistics.API.MappingProfiles;
 using GitHub.Statistics.API.Services;
 using GitHub.Statistics.API.Services.Interfaces;
 using MediatR;
@@ -39,7 +40,7 @@ void AddServices(IServiceCollection services, string clientPolicyName)
 
     var mapperConfig = new MapperConfiguration(config =>
     {
-
+        config.AddProfile(new GitHubRepositoryInfoProfile());
     });
 
     IMapper mapper = mapperConfig.CreateMapper();

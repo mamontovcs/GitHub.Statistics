@@ -26,12 +26,6 @@ namespace GitHub.Statistics.API.Controllers
         [Route("test")]
         public async Task<IActionResult> Test([FromHeader(Name = "AccessToken")] string accessToken)
         {
-            //var githubClient = _gitHubClientFactory.CreateGitHubClient(accessToken);
-
-            //var userName = await githubClient.User.Current();
-
-            //var repositories = await githubClient.Repository.GetAllForUser("mamontovcs");
-
             _memoryCache.Set("AccessToken", accessToken);
 
             var gitHubRepositoryInfos = await _gitHubRespotiriesService.GetGitHubRepositoriesInfos();

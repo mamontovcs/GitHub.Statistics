@@ -1,6 +1,8 @@
 version: '3'
+name: github-statistics
 services:
-  web:
+  github-statistics:
+    container_name: github-statistics
     # Path to dockerfile.
     # '.' represents the current directory in which
     # docker-compose.yml is present.
@@ -13,9 +15,7 @@ services:
       - ASPNETCORE_URLS=http://+80
 
     networks:
-      github:
-        aliases:
-          - github
+      - github
 
 networks:
   github:
