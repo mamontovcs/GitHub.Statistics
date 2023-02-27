@@ -28,6 +28,9 @@ namespace GitHub.Statistics.API.Services
 
             var repositories = await githubClient.Repository.GetAllForUser(user.Login);
 
+            // Get repository info
+            // await githubClient.Repository.Commit.GetAll()
+
             var repositoryInfos = _mapper.Map<IEnumerable<GitHubRepositoryInfo>>(repositories);
 
             return repositoryInfos;
