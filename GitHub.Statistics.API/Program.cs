@@ -41,6 +41,7 @@ void AddServices(IServiceCollection services, string clientPolicyName)
     var mapperConfig = new MapperConfiguration(config =>
     {
         config.AddProfile(new GitHubRepositoryInfoProfile());
+        config.AddProfile(new GitHubAccountInfoProfile());
     });
 
     IMapper mapper = mapperConfig.CreateMapper();
@@ -49,6 +50,7 @@ void AddServices(IServiceCollection services, string clientPolicyName)
     services.AddTransient<IGitHubClientFactory, GitHubClientFactory>();
     services.AddTransient<IGitHubRepositoriesInfoReceiver, GitHubRepositoriesInfoReceiver>();
     services.AddTransient<IGitHubRepositoriesService, GitHubRepositoriesService>();
+    services.AddTransient<IGitHubAccountInfoReceiver, GitHubAccountInfoReceiver>();
 
     services.AddCors(options =>
     {
