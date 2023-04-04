@@ -1,0 +1,28 @@
+h1 {
+    color: #ffff;
+}
+
+label {
+    color: #ffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.github-avatar {
+    border-radius: 50%;
+}
+
+.avatar-holder {
+    margin-bottom: 2em;
+}
+
+.account-info {
+    border-color: #1C0202;
+    border-style: solid;
+    border-radius: 5%;
+    border-width: thin;
+    padding: 3em;
+}

@@ -1,0 +1,40 @@
+table {
+    background-color: #1a2029;
+}
+
+td,
+th {
+    font-size: 20px;
+    color: white;
+}
+
+mat-paginator {
+    background-color: rgba(245, 244, 244, 0.1);
+}
+
+.table-column {
+    margin-left: 10em;
+}
+
+.mat-form-field {
+    font-size: 14px;
+}
+
+.filter mat-form-field {
+    width: 100%;
+}
+
+.mat-mdc-table .mat-mdc-row:hover {
+    background-color: #fff5a2;
+}
+
+mat-paginator {
+    display: flex;
+    justify-content: start;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.mat-column-Name{
+    width: 40em;
+}

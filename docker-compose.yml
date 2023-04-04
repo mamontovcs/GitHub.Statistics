@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  github.statistics.api:
+    image: ${DOCKER_REGISTRY-}github-statistics-api
+    build:
+      context: GitHub.Statistics.API/
+      dockerfile: Dockerfile
+
+  github.statistics.authentication:
+    image: ${DOCKER_REGISTRY-}github-statistics-authentication
+    build:
+      context: GitHub.Statistics.Authentication/
+      dockerfile: Dockerfile
+
+  github.statistics.clientapp:
+    image: ${DOCKER_REGISTRY-}github-statistics-clientapp
+    build:
+      context: Github.Statistics.ClientApp
+      dockerfile: Dockerfile
+
+networks:
+  default:
+    name: github-statistics-network
