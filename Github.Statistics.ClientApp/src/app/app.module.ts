@@ -21,7 +21,7 @@ import { ChartModule } from 'primeng/chart';
 import { KnobModule } from 'primeng/knob';
 import { FormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
-import { MessagesLogComponent } from './messages-log/messages-log.component';
+import { MessagesLogComponent } from './components/messages-log/messages-log.component';
 
 @NgModule({
   declarations: [
