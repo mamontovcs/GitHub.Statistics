@@ -51,12 +51,13 @@ void AddServices(IServiceCollection services, string clientPolicyName)
     services.AddTransient<IGitHubRepositoriesInfoReceiver, GitHubRepositoriesInfoReceiver>();
     services.AddTransient<IGitHubRepositoryService, GitHubRepositoryService>();
     services.AddTransient<IGitHubAccountInfoReceiver, GitHubAccountInfoReceiver>();
-    services.AddTransient<IGitHubRepositoryInfoReceiver, GitHubRepositoryInfoReceiver>();
+    services.AddTransient<IGitHubRepositoryStatisticsReceiver, GitHubRepositoryStatisticsReceiver>();
+    services.AddTransient<IGitHubRepositoryStatisticsBuilder, GitHubRepositoryStatisticsBuilder>();
 
     services.AddCors(options =>
     {
         options.AddPolicy(clientPolicyName, builder => builder
-            .WithOrigins("http://github-statistics-clientapp:443")
+            .WithOrigins("http://localhost:4200")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());

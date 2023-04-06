@@ -9,6 +9,6 @@ export class AuthenticationService {
   constructor(private _httpClient: HttpClient) { }
 
   public authtenticate() {
-    return this._httpClient.get('http://github-statistics-authentication:5502/authtentication/getOAuthLink');
+    return this._httpClient.get('http://localhost:2509/authtentication/getOAuthLink');
   }
 }

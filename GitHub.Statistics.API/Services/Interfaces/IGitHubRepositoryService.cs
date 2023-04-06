@@ -6,6 +6,6 @@ namespace GitHub.Statistics.API.Services.Interfaces
     {
         Task<IEnumerable<IGitHubRepositoryInfo>> GetGitHubRepositoriesInfos();
 
-        Task<IGitHubRepositoryInfo> GetGitHubRepositoryInfo(long repositoryId);
+        Task<IGitHubRepositoryStatistics> GetGitHubRepositoryInfo(long repositoryId);
     }
 }

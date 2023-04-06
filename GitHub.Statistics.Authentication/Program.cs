@@ -11,7 +11,7 @@ var clientPolicyName = "ClientPolicy";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(clientPolicyName, builder => builder
-        .WithOrigins("http://github-statistics-clientapp:443")
+        .WithOrigins("http://localhost:4200")
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials());

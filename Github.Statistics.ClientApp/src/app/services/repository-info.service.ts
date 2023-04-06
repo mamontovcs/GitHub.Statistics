@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RepositoryInfo } from '../models/RepositoryInfo';
+import { RepositoryStatistics } from '../models/RepositoryStatistics';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +21,12 @@ export class RepositoryInfoService {
     return repositoryInfos;
   }
 
-  getRepository(repositoryId: string): Observable<RepositoryInfo> {
+  getRepository(repositoryId: string): Observable<RepositoryStatistics> {
     const token = localStorage.getItem("AccessToken")?.toString() ?? "";
     const headers = new HttpHeaders()
       .set("AccessToken", token.toString());
 
-    var repositoryInfo = this._httpClient.get<RepositoryInfo>(`http://localhost:2508/api/repositories/get?id=${repositoryId}`, { 'headers': headers });
-    return repositoryInfo;
+    var repositoryStatistics = this._httpClient.get<RepositoryStatistics>(`http://localhost:2508/api/repositories/get?id=${repositoryId}`, { 'headers': headers });
+    return repositoryStatistics;
   }
 }

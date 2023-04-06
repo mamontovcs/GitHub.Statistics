@@ -1,4 +1,14 @@
-.card{
-    height: 300px;
-    width: 200px;
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1.8em 15em 15em 1.8em;
+}
+
+label {
+    color: #ffff;
+}
+
+.knob-with-label{
+    display: flex;
+    justify-content: center;
 }

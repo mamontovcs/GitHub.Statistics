@@ -7,7 +7,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "2508:5501"
+      - "2508:80"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -17,11 +17,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "2509:5502"
+      - "2509:80"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  github.statistics.clientapp:
-    container_name: github-statistics-clientapp
-    ports:
-      - "2510:80"
+  #github.statistics.clientapp:
+  #  container_name: github-statistics-clientapp
+  #  ports:
+  #    - "2510:80"

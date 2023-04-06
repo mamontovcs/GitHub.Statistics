@@ -18,6 +18,10 @@ import { MatInputModule } from '@angular/material/input';
 import { RepositoriesTableComponent } from './components/repositories-section/repositories-table/repositories-table.component';
 import { AccountInfoComponent } from './components/repositories-section/account-info/account-info.component';
 import { ChartModule } from 'primeng/chart';
+import { KnobModule } from 'primeng/knob';
+import { FormsModule } from '@angular/forms';
+import { MessagesModule } from 'primeng/messages';
+import { MessagesLogComponent } from './messages-log/messages-log.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { ChartModule } from 'primeng/chart';
     PageNotFoundComponent,
     HomePageComponent,
     RepositoriesTableComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    MessagesLogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,10 @@ import { ChartModule } from 'primeng/chart';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    ChartModule
+    ChartModule,
+    KnobModule,
+    FormsModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

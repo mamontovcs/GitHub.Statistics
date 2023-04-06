@@ -1,3 +1,12 @@
-<div class="card">
-    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+<!--  -->
+<div class="wrapper">
+    <div class="repository-info">
+
+    </div>
+    <div class="repository-statistics">
+        <div class="amount-of-commits">
+            <p-knob class="knob-with-label" name="amountOfCommits" [readonly]="true" [(ngModel)]="repositoryStatistics.amountOfCommits"></p-knob>
+            <label for="amountOfCommits">Ammount of commits</label>
+        </div>
+    </div>
 </div>

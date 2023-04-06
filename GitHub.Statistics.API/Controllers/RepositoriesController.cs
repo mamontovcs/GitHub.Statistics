@@ -1,9 +1,6 @@
-﻿using GitHub.Statistics.API.Models.Interfaces;
-using GitHub.Statistics.API.Services.Interfaces;
+﻿using GitHub.Statistics.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Octokit;
-using System.Text.Json;
 
 namespace GitHub.Statistics.API.Controllers
 {

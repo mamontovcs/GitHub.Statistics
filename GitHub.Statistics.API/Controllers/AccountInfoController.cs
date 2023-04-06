@@ -1,14 +1,11 @@
-﻿using GitHub.Statistics.API.Models.Interfaces;
-using GitHub.Statistics.API.Services.Interfaces;
+﻿using GitHub.Statistics.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Octokit;
-using System.Text.Json;
 
 namespace GitHub.Statistics.API.Controllers
 {
     /// <summary>
-    /// 
+    /// Controller, which is responsible for operating with GitHub accounts
     /// </summary>
     [Route("[controller]")]
     public class AccountInfoController : Controller
@@ -16,6 +13,11 @@ namespace GitHub.Statistics.API.Controllers
         private readonly IGitHubAccountInfoReceiver _gitHubAccountInfoReceiver;
         private readonly IMemoryCache _memoryCache;
 
+        /// <summary>
+        /// Creates instance of <see cref="AccountInfoController"/>
+        /// </summary>
+        /// <param name="gitHubAccountInfoReceiver"></param>
+        /// <param name="memoryCache"></param>
         public AccountInfoController(IGitHubAccountInfoReceiver gitHubAccountInfoReceiver, IMemoryCache memoryCache)
         {
             _gitHubAccountInfoReceiver = gitHubAccountInfoReceiver;

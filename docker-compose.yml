@@ -13,11 +13,11 @@ services:
       context: GitHub.Statistics.Authentication/
       dockerfile: Dockerfile
 
-  github.statistics.clientapp:
-    image: ${DOCKER_REGISTRY-}github-statistics-clientapp
-    build:
-      context: Github.Statistics.ClientApp
-      dockerfile: Dockerfile
+  #github.statistics.clientapp:
+  #  image: ${DOCKER_REGISTRY-}github-statistics-clientapp
+  #  build:
+  #    context: Github.Statistics.ClientApp
+  #    dockerfile: Dockerfile
 
 networks:
   default:

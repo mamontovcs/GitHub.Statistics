@@ -8,3 +8,7 @@
     flex: 1 1 auto;
     background-color: #1a2029;
 }
+
+app-messages-log {
+    max-width: 100px;
+}

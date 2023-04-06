@@ -26,6 +26,4 @@ export class RepositoriesSectionComponent implements OnInit {
   ngOnInit() {
     this.token = localStorage.getItem("AccessToken");
   }
-
- 
 }

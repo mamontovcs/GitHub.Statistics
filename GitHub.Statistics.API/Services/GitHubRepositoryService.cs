@@ -5,12 +5,13 @@ namespace GitHub.Statistics.API.Services
 {
     public class GitHubRepositoryService : IGitHubRepositoryService
     {
-        private readonly IGitHubRepositoryInfoReceiver _gitHubRepositoryInfoReceiver;
+        private readonly IGitHubRepositoryStatisticsReceiver _gitHubRepositoryStatisticsReceiver;
         private readonly IGitHubRepositoriesInfoReceiver _gitHubRepositoriesInfoReceiver;
 
-        public GitHubRepositoryService(IGitHubRepositoryInfoReceiver gitHubRepositoryInfoReceiver, IGitHubRepositoriesInfoReceiver gitHubRepositoriesInfoReceiver)
+        public GitHubRepositoryService(IGitHubRepositoryStatisticsReceiver gitHubRepositoryStatisticsReceiver, 
+            IGitHubRepositoriesInfoReceiver gitHubRepositoriesInfoReceiver)
         {
-            _gitHubRepositoryInfoReceiver = gitHubRepositoryInfoReceiver;
+            _gitHubRepositoryStatisticsReceiver = gitHubRepositoryStatisticsReceiver;
             _gitHubRepositoriesInfoReceiver = gitHubRepositoriesInfoReceiver;
         }
 
@@ -19,9 +20,9 @@ namespace GitHub.Statistics.API.Services
             return await _gitHubRepositoriesInfoReceiver.GetGitHubRepositoriesInfos();
         }
 
-        public async Task<IGitHubRepositoryInfo> GetGitHubRepositoryInfo(long repositoryId)
+        public async Task<IGitHubRepositoryStatistics> GetGitHubRepositoryInfo(long repositoryId)
         {
-            return await _gitHubRepositoryInfoReceiver.GetGitHubRepositoryInfo(repositoryId);
+            return await _gitHubRepositoryStatisticsReceiver.GetGitHubRepositoryStatistics(repositoryId);
         }
     }
 }
